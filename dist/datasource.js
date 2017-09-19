@@ -86,18 +86,15 @@ function (angular, _, dateMath, moment) {
         };
 
         var filters = [];
-        if(target.filters){
-            filters = angular.copy(target.filters);
-        }
-        filters.push({
+        filters = {
             "type": "search",
             "dimension": target.currentFilter.dimension,
             "query": {
                 "type": "insensitive_contains",
                 "value": query
             }
-        });
-        topNquery.filter = buildFilterTree(filters);
+        };
+        topNquery.filter = filters;
 
         return this._druidQuery(topNquery);
     };
