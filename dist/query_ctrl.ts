@@ -53,7 +53,7 @@ export class DruidQueryCtrl extends QueryCtrl {
     defaultFilterType = "selector";
     defaultAggregatorType = "count";
     defaultPostAggregator = {type: 'arithmetic', 'fn': '+'};
-    customGranularities = ['minute', 'fifteen_minute', 'thirty_minute', 'hour', 'day', 'all'];
+    customGranularities = ['second', 'minute', 'fifteen_minute', 'thirty_minute', 'hour', 'day', 'all'];
     defaultCustomGranularity = 'minute';
     defaultSelectDimension = "";
     defaultSelectMetric = "";
@@ -332,7 +332,7 @@ export class DruidQueryCtrl extends QueryCtrl {
     }
 
     isValidArithmeticPostAggregatorFn(fn) {
-      return _.contains(this.arithmeticPostAggregator, fn);
+      return _.includes(this.arithmeticPostAggregator, fn);
     }
 
     validateMaxDataPoints(target, errs) {

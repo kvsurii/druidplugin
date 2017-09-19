@@ -49,7 +49,7 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                     this.defaultFilterType = "selector";
                     this.defaultAggregatorType = "count";
                     this.defaultPostAggregator = { type: 'arithmetic', 'fn': '+' };
-                    this.customGranularities = ['minute', 'fifteen_minute', 'thirty_minute', 'hour', 'day', 'all'];
+                    this.customGranularities = ['second', 'minute', 'fifteen_minute', 'thirty_minute', 'hour', 'day', 'all'];
                     this.defaultCustomGranularity = 'minute';
                     this.defaultSelectDimension = "";
                     this.defaultSelectMetric = "";
@@ -282,7 +282,7 @@ System.register(['lodash', './sdk/sdk'], function(exports_1) {
                     return lodash_1["default"].has(this.queryTypeValidators, type);
                 };
                 DruidQueryCtrl.prototype.isValidArithmeticPostAggregatorFn = function (fn) {
-                    return lodash_1["default"].contains(this.arithmeticPostAggregator, fn);
+                    return lodash_1["default"].includes(this.arithmeticPostAggregator, fn);
                 };
                 DruidQueryCtrl.prototype.validateMaxDataPoints = function (target, errs) {
                     if (target.maxDataPoints) {
